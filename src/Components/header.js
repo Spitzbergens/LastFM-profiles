@@ -10,9 +10,6 @@ const Header = (props) => {
                         <h1 className="title is-light">
                             Last.FM Profile
                             </h1>
-
-                        <p className="subtitle header">{props.username}</p>
-
                     </div>
                 </div>
             </div>

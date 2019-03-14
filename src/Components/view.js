@@ -15,26 +15,42 @@ class View extends React.Component {
             userImage: '',
             userPlaycount: '',
             userRealName: '',
+            userExists: false,
         }
+
     }
 
-    componentWillMount() {
-        this.getUser();
+    async componentWillMount() {
+        await this.getUser();
+    }
+
+
+
+    componentDidMount() {
         this.getArtist();
         this.getUserFriends();
     }
 
+
+
     getUser = () => {
+
         getUserInfo(this.state.user)
             .then((data) => {
-                console.log(data)
                 this.setState({
                     userImage: data.user.image[2]["#text"],
                     userPlaycount: data.user.playcount,
                     userRealName: data.user.realname
                 })
+                console.log(data.user.playcount)
+                if (data.user.playcount !== "0") {
+                    this.setState({
+                        userExists: true
+                    });
+                }
             })
     }
+
 
     getArtist = () => {
         getTopArtists(this.state.user).then(
@@ -59,23 +75,35 @@ class View extends React.Component {
                 this.setState({
                     userFriends: data.friends.user,
                 });
-            });
+            }).catch((error) => {
+                console.error(error)
+            })
     }
 
     render() {
         return (
             <div className="container">
+                {this.state.userExists === true &&
+                    <span>
+                        <UserInfo
+                            image={this.state.userImage}
+                            name={this.state.userRealName}
+                            playcount={this.state.userPlaycount}
+                            friends={this.state.userFriends}
+                        />
+                        <TopArtists
+                            artists={this.state.artists}
+                        />
+                    </span>
+                }
 
-                <UserInfo
-                    image={this.state.userImage}
-                    name={this.state.userRealName}
-                    playcount={this.state.userPlaycount}
-                    friends={this.state.userFriends}
-                />
-
-                <TopArtists
-                    artists={this.state.artists}
-                />
+                {this.state.userExists === false &&
+                    <span>
+                        <Error
+                            error="This users does not exist"
+                        />
+                    </span>
+                }
             </div>
 
         );
