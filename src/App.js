@@ -3,7 +3,7 @@ import './App.scss';
 import View from './Components/view';
 import Header from './Components/header';
 import User from './Components/user';
-import connectAPI from './Utils/api';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends Component {
 
@@ -25,18 +25,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Header
-          username={this.state.user}
-        />
-        {this.state.user ? (<View
-          user={this.state.user}
-        />) :
-          (<User
-            handlerFromParent={this.fromUser}
-          />)}
+      <Router>
+        <div className="App">
 
-      </div>
+          <Header
+            username={this.state.user}
+          />
+          {this.state.user ? (<View
+            user={this.state.user}
+          />) :
+            (<User
+              handlerFromParent={this.fromUser}
+            />)}
+
+        </div>
+      </Router>
     );
   }
 }

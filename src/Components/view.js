@@ -1,6 +1,6 @@
 import React from 'react';
 import TopArtists from './topArtists';
-import { getTopArtists, getUserInfo } from '../Utils/api';
+import { getTopArtists, getUserInfo, getUserFriends } from '../Utils/api';
 import Error from '../error';
 import UserInfo from './userInfo';
 
@@ -10,17 +10,18 @@ class View extends React.Component {
         super(props);
         this.state = {
             artists: [],
+            userFriends: [],
             user: this.props.user,
             userImage: '',
             userPlaycount: '',
             userRealName: '',
-
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.getUser();
         this.getArtist();
+        this.getUserFriends();
     }
 
     getUser = () => {
@@ -52,6 +53,15 @@ class View extends React.Component {
         })
     }
 
+    getUserFriends = () => {
+        getUserFriends(this.state.user)
+            .then((data) => {
+                this.setState({
+                    userFriends: data.friends.user,
+                });
+            });
+    }
+
     render() {
         return (
             <div className="container">
@@ -60,6 +70,7 @@ class View extends React.Component {
                     image={this.state.userImage}
                     name={this.state.userRealName}
                     playcount={this.state.userPlaycount}
+                    friends={this.state.userFriends}
                 />
 
                 <TopArtists

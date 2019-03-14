@@ -22,9 +22,18 @@ const getUserInfo = async (user) => {
     return data;
 }
 
+const getUserFriends = async (user) => {
+    const getUser = `${api_root}?method=user.getfriends&user=${user}&api_key=${key}&format=json`;
+    const data = await fetch(getUser)
+        .then((data) => {
+            return data.json();
+        }).catch((error) => {
+            console.error(error);
+        })
+    return data;
+}
 
-
-export { getTopArtists, getUserInfo };
+export { getTopArtists, getUserInfo, getUserFriends };
 
 
 
