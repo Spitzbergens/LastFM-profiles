@@ -26,9 +26,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-
-        {this.state.user ? (<View />) :
+        <Header
+          username={this.state.user}
+        />
+        {this.state.user ? (<View
+          user={this.state.user}
+        />) :
           (<User
             handlerFromParent={this.fromUser}
           />)}

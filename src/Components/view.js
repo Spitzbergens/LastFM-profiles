@@ -1,56 +1,71 @@
 import React from 'react';
-import Card from './card';
-import ConnectAPI from '../Utils/api';
+import TopArtists from './topArtists';
+import { getTopArtists, getUserInfo } from '../Utils/api';
+import Error from '../error';
+import UserInfo from './userInfo';
 
 class View extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            artists: []
+            artists: [],
+            user: this.props.user,
+            userImage: '',
+            userPlaycount: '',
+            userRealName: '',
+
         }
     }
 
     componentDidMount() {
+        this.getUser();
         this.getArtist();
     }
 
+    getUser = () => {
+        getUserInfo(this.state.user)
+            .then((data) => {
+                console.log(data)
+                this.setState({
+                    userImage: data.user.image[2]["#text"],
+                    userPlaycount: data.user.playcount,
+                    userRealName: data.user.realname
+                })
+            })
+    }
+
     getArtist = () => {
-        ConnectAPI().then(
+        getTopArtists(this.state.user).then(
             (data) => {
                 const artist = data.topartists
                 this.setState({
                     artists: artist.artist
                 });
             }
-        )
+        ).catch((error) => {
+            return (
+                <Error
+                    message={error}
+                />
+            )
+        })
     }
 
     render() {
         return (
+            <div className="container">
 
-            <section className="section">
-                <div className="hero">
-                    <div className="hero-body">
-                        <p className="title">Top artists</p>
-                    </div>
-                </div>
-                <div className="tile-wrapper">
-                    {this.state.artists.map((element) => {
-                        return (
-                            <div className="tiles" key={element.name}>
-                                <Card
-                                    image={
-                                        element.image[4]["#text"]
-                                    }
-                                    artistName={element.name}
-                                    playCount={`Scrobbles: ${element.playcount}`}
-                                />
-                            </div>
-                        )
-                    })}
-                </div>
-            </section>
+                <UserInfo
+                    image={this.state.userImage}
+                    name={this.state.userRealName}
+                    playcount={this.state.userPlaycount}
+                />
+
+                <TopArtists
+                    artists={this.state.artists}
+                />
+            </div>
 
         );
     }

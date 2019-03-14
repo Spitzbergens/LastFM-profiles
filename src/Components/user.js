@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 
 class User extends React.Component {
@@ -40,10 +39,12 @@ class User extends React.Component {
                     <div className="field">
                         Username
                     </div>
-                    <div className="control">
-                        <input type="text" className="input" placeholder="Text input" ref="name" />
-                        <Link to="" className="button" onClick={this.handleInput}>Get Profile</Link>
-                    </div>
+                    <form onSubmit={this.submitHandler}>
+                        <div className="control">
+                            <input type="text" className="input" placeholder="Text input" ref="name" />
+                            <button type="submit" className="button" onClick={this.handleInput}>Get Profile</button>
+                        </div>
+                    </form>
                     <p className="help">Your information won't persist</p>
                 </div>
             </div>
