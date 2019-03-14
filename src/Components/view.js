@@ -28,20 +28,26 @@ class View extends React.Component {
 
     render() {
         return (
-            <div className="container">
-                {this.state.artists.map((element) => {
-                    return (
-                        <Card
-                            key={element.name}
-                            image={
-                                element.image[4]["#text"]
-                            }
-                            artistName={element.name}
-                            playCount={element.playcount}
-                        />
-                    )
-                })}
-            </div>
+
+            <section className="section">
+                <div className="container">
+                    <div className="columns">
+                        {this.state.artists.map((element) => {
+                            return (
+                                <div className="column is-one-fifth" key={element.name}>
+                                    <Card
+                                        image={
+                                            element.image[4]["#text"]
+                                        }
+                                        artistName={element.name}
+                                        playCount={`Scrobbles: ${element.playcount}`}
+                                    />
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+            </section>
 
         );
     }
