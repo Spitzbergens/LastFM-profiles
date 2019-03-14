@@ -1,4 +1,36 @@
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway:600');
+
+h1,h2,h3,h4{
+    font-family: 'Raleway', sans-serif;
+}
+
+p{
+    font-family: 'Open Sans', sans-serif;
+}
+
 .columns{
     flex-flow: wrap;
+}
+
+
+.card{
+   margin: 10px;
+   max-width: 250px;
+   min-width: 200px;
+   word-wrap: break-word;
+}
+
+.tile-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: center;
+    height: 100vh;
+    align-items: flex-start;
+}
+
+.tiles{
+    break-inside: avoid;
+    padding: 0px;
 }

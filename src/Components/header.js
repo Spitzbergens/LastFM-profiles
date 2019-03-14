@@ -10,11 +10,9 @@ class Header extends React.Component {
                     <div className="navbar-item">
                         <div className="container">
                             <h1 className="title is-light">
-                                Last.FM
+                                Last.FM Profile
                         </h1>
-                            <h2 className="subtitle is-light">
-                                Mats Hagen
-                        </h2>
+
                         </div>
                     </div>
                 </div>

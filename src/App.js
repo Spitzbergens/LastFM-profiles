@@ -2,17 +2,37 @@ import React, { Component } from 'react';
 import './App.scss';
 import View from './Components/view';
 import Header from './Components/header';
+import User from './Components/user';
 import connectAPI from './Utils/api';
 
 class App extends Component {
 
-  render() {
-    console.log(connectAPI());
+  constructor() {
+    super();
+    this.state = {
+      user: null,
+    }
+  }
 
+
+  fromUser = (data) => {
+    this.setState({
+      user: data
+    });
+  }
+
+
+
+  render() {
     return (
       <div className="App">
         <Header />
-        <View />
+
+        {this.state.user ? (<View />) :
+          (<User
+            handlerFromParent={this.fromUser}
+          />)}
+
       </div>
     );
   }
