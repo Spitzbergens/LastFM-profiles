@@ -1,0 +1,32 @@
+
+
+.box-user{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 40%;
+    padding: 40px;
+    box-shadow: 22px 22px 100px 0  rgba(138, 148, 146, 0.24);
+   
+}
+
+.box-title{
+    margin: 5px;
+    padding: 5px;
+    & p{
+        font-size: 28px;
+    }
+}
+
+.container-user{
+    display: flex;
+    justify-content: center;
+}
+
+.user-control{
+
+    & input{
+        margin-bottom:5px;
+    }
+
+}

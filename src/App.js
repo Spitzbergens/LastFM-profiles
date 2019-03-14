@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.scss';
-import View from './Components/view';
+import View from './Components/View/view';
 import Header from './Components/header';
-import User from './Components/user';
+import User from './Components/User/user';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends Component {

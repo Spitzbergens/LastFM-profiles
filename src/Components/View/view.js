@@ -1,8 +1,8 @@
 import React from 'react';
-import TopArtists from './topArtists';
-import { getTopArtists, getUserInfo, getUserFriends } from '../Utils/api';
-import Error from '../error';
-import UserInfo from './userInfo';
+import TopArtists from '../topArtists';
+import { getTopArtists, getUserInfo, getUserFriends } from '../../Utils/api';
+import Error from '../../error';
+import UserInfo from '../userInfo';
 
 class View extends React.Component {
 
