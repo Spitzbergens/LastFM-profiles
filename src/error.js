@@ -1,17 +1,28 @@
 import React from 'react';
 
 
-const Error = (props) => {
+class Error extends React.Component {
 
-    return (
-        <div className="container">
-            <p>
-                Something went wrong.
+    componentDidMount() {
+        setTimeout(() => { document.location.reload(true) }, 5000)
+    }
+
+
+    render() {
+        return (
+
+            <section className="section">
+                <div className="error-wrapper">
+                    <p className="subtitle">
+                        Something went wrong. :( There exists no user with that name.
+                        Heading back in 5 seconds.
             </p>
-            <p>{props.error}</p>
-        </div>
+                </div>
 
-    )
+            </section>
+
+        )
+    }
 
 }
 

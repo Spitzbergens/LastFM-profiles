@@ -21,7 +21,7 @@ class View extends React.Component {
             userImage: '',
             userPlaycount: '',
             userRealName: '',
-            userExists: false,
+            userExists: true,
             placeholderAvatar: "",
         }
     }
@@ -57,9 +57,9 @@ class View extends React.Component {
                     })
                 }
 
-                if (data.user.playcount !== "0") {
+                if (data.user.playcount === "0") {
                     this.setState({
-                        userExists: true
+                        userExists: false,
                     });
                 }
             })
@@ -107,28 +107,28 @@ class View extends React.Component {
     render() {
         return (
             <div className="container">
-                {this.state.userExists === true &&
-                    <span>
-                        <UserInfo
-                            image={this.state.userImage}
-                            name={this.state.userRealName}
-                            playcount={this.state.userPlaycount}
-                            friends={this.state.userFriends}
-                            weekly={this.state.weekly}
-                        />
-                        <TopArtists
-                            artists={this.state.artists}
-                        />
-                    </span>
+
+                {this.state.userExists ?
+                    (
+                        <span>
+                            <UserInfo
+                                image={this.state.userImage}
+                                name={this.state.userRealName}
+                                playcount={this.state.userPlaycount}
+                                friends={this.state.userFriends}
+                                weekly={this.state.weekly}
+                            />
+                            <TopArtists
+                                artists={this.state.artists}
+                            />
+                        </span>
+                    ) : (
+                        <span>
+                            <Error />
+                        </span>
+                    )
                 }
 
-                {this.state.userExists === false &&
-                    <span>
-                        <Error
-                            error="This users does not exist"
-                        />
-                    </span>
-                }
             </div>
 
         );
