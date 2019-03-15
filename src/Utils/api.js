@@ -2,6 +2,7 @@
 const key = process.env.REACT_APP_LASTFM_API_KEY;
 const api_root = "http://ws.audioscrobbler.com/2.0/";
 
+
 const getTopArtists = async (user) => {
     const getTopArtistURI = `${api_root}?method=user.gettopartists&user=${user}&api_key=${key}&format=json`
     const data = await fetch(getTopArtistURI)

@@ -17,7 +17,7 @@ const UserInfo = (props) => {
                                         <h1 className="title">{props.name}</h1>
                                     </div>
                                     <div className="column">
-                                        <img className="profile-img" src={props.image} />
+                                        <img className="profile-img" src={props.image} alt="" />
                                     </div>
                                     <div className="column">
                                         <div className="tags are-medium has-addons">
@@ -46,7 +46,7 @@ const UserInfo = (props) => {
                                                 <article className="media">
                                                     <div className="media-left">
                                                         <figure className="image">
-                                                            <img className="profile-img" src={users.image[1]["#text"]} />
+                                                            <img className="profile-img" src={users.image[1]["#text"]} alt="" />
                                                         </figure>
                                                     </div>
                                                     <div className="media-content">
@@ -59,14 +59,14 @@ const UserInfo = (props) => {
                                                                     {` @${users.name}`}
                                                                 </Link>
                                                             </small>
-
-                                                            <div className="tags has-addons">
-                                                                <span className="tag tag-left">Scrobbles</span>
-                                                                <span className="tag tag-right">{users.playcount}</span>
-                                                            </div>
-
-
                                                         </p>
+
+                                                        <div className="tags has-addons">
+                                                            <span className="tag tag-left">Scrobbles</span>
+                                                            <span className="tag tag-right">{users.playcount}</span>
+                                                        </div>
+
+
                                                     </div>
                                                 </article>
 
