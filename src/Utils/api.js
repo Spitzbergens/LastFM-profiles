@@ -1,6 +1,6 @@
 
 const key = process.env.REACT_APP_LASTFM_API_KEY;
-const api_root = "http://ws.audioscrobbler.com/2.0/";
+const api_root = "https://ws.audioscrobbler.com/2.0/";
 
 
 const getTopArtists = async (user) => {
