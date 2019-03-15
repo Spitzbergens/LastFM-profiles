@@ -1,7 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway:600');
-
-$box-shadow: 22px 22px 100px 0  rgba(138, 148, 146, 0.24);
+@import './variables.scss';
 
 h1,h2,h3,h4{
     font-family: 'Raleway', sans-serif;
@@ -16,37 +15,21 @@ p{
 }
 
 .profile-img{
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 .columns{
     flex-flow: wrap;
 }
 
-
-.card{
-   margin: 10px;
-   max-width: 250px;
-   min-width: 200px;
-   word-wrap: break-word;
-   border-radius: 5px;
-   box-shadow: $box-shadow;
+.tags{
+    margin-top: 8px;
+    &.tags:last-child{
+        margin-bottom: 0rem;
+    }
 }
+
 
 .box{
     box-shadow: $box-shadow;
-}
-
-.tile-wrapper{
-    display: flex;
-    flex-direction: row;
-    flex-flow: wrap;
-    justify-content: center;
-    height: 100vh;
-    align-items: flex-start;
-}
-
-.tiles{
-    break-inside: avoid;
-    padding: 0px;
 }

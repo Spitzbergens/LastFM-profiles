@@ -11,11 +11,12 @@ const Card = (props) => {
                 <img src={props.image} />
             </div>
             <div className="card-content">
-                <p className="title">{props.artistName}</p>
+                <h3 className="title">{props.artistName}</h3>
                 <div className="content">
-                    <p className="subtitle">
-                        {props.playCount}
-                    </p>
+                    <div className="tags has-addons">
+                        <span className="tag tag-left">Scrobbles</span>
+                        <span className="tag tag-right">{props.playCount}</span>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from './card';
+import Card from '../Card/card';
 import PropTypes from 'prop-types';
 
 const TopArtists = (props) => {
@@ -10,7 +10,7 @@ const TopArtists = (props) => {
             <div className="content">
                 <div className="hero">
                     <div className="hero-body">
-                        <p className="title">Top artists</p>
+                        <h1 className="title artist-title">Top artists</h1>
                     </div>
                 </div>
                 <div className="tile-wrapper">
@@ -22,7 +22,7 @@ const TopArtists = (props) => {
                                         element.image[4]["#text"]
                                     }
                                     artistName={element.name}
-                                    playCount={`Scrobbles: ${element.playcount}`}
+                                    playCount={element.playcount}
                                 />
                             </div>
                         )

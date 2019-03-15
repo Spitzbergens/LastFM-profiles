@@ -33,7 +33,30 @@ const getUserFriends = async (user) => {
     return data;
 }
 
-export { getTopArtists, getUserInfo, getUserFriends };
+const getTokenLastFM = async (token) => {
+    const getToken = `${api_root}?method=auth.gettoken&api_key=${key}&format=json`;
+    const tokenn = await fetch(getToken)
+        .then((data) => {
+            return data.json();
+        }).catch((error) => {
+            console.error(error);
+        })
+    return tokenn;
+}
+
+const getWeeklyArtists = async (user) => {
+    const getUser = `${api_root}?method=user.getweeklyartistchart&user=${user}&api_key=${key}&format=json`;
+    const artists = fetch(getUser).
+        then((data) => {
+            return data.json();
+        }).catch(error => console.error(error));
+    return artists;
+}
+
+
+
+
+export { getTopArtists, getUserInfo, getUserFriends, getTokenLastFM, getWeeklyArtists };
 
 
 

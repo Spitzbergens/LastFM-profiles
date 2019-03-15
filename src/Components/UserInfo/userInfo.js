@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import WeeklyArtists from '../WeeklyArtists/weeklyArtists';
 import { Link } from 'react-router-dom';
 
 const UserInfo = (props) => {
@@ -19,9 +20,15 @@ const UserInfo = (props) => {
                                         <img className="profile-img" src={props.image} />
                                     </div>
                                     <div className="column">
-                                        <div className="content content-userinfo">
-                                            <h4 class="subtitle">Total scrobbles:</h4><p>{props.playcount}</p>
+                                        <div className="tags are-medium has-addons">
+                                            <span className="tag tag-left">Scrobbles</span>
+                                            <span className="tag tag-right">{props.playcount}</span>
                                         </div>
+                                    </div>
+                                    <div className="column">
+                                        <WeeklyArtists
+                                            weekly={props.weekly}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -35,7 +42,7 @@ const UserInfo = (props) => {
                                 <div className="child-userinfo">
                                     {props.friends.map((users) => {
                                         return (
-                                            <div className="box box-friends">
+                                            <div className="box box-friends" key={users.name || users.realname}>
                                                 <article className="media">
                                                     <div className="media-left">
                                                         <figure className="image">
@@ -52,11 +59,12 @@ const UserInfo = (props) => {
                                                                     {` @${users.name}`}
                                                                 </Link>
                                                             </small>
-                                                            <br />
-                                                            {users.country && `Country: ${users.country}`}
-                                                            <br />
 
-                                                            Scrobbles: {users.playcount}
+                                                            <div className="tags has-addons">
+                                                                <span className="tag tag-left">Scrobbles</span>
+                                                                <span className="tag tag-right">{users.playcount}</span>
+                                                            </div>
+
 
                                                         </p>
                                                     </div>

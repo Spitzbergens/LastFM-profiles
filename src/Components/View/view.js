@@ -1,6 +1,6 @@
 import React from 'react';
-import TopArtists from '../topArtists';
-import { getTopArtists, getUserInfo, getUserFriends } from '../../Utils/api';
+import TopArtists from '../TopArtists/topArtists';
+import { getTopArtists, getUserInfo, getUserFriends, getWeeklyArtists } from '../../Utils/api';
 import Error from '../../error';
 import UserInfo from '../UserInfo/userInfo';
 
@@ -11,6 +11,7 @@ class View extends React.Component {
         this.state = {
             artists: [],
             userFriends: [],
+            weekly: [],
             user: this.props.user,
             userImage: '',
             userPlaycount: '',
@@ -18,10 +19,13 @@ class View extends React.Component {
             userExists: false,
         }
 
+
     }
 
     async componentWillMount() {
-        await this.getUser();
+        this.getUser();
+        this.getWeekly();
+
     }
 
 
@@ -33,22 +37,37 @@ class View extends React.Component {
 
 
 
+
+
+
     getUser = () => {
 
         getUserInfo(this.state.user)
             .then((data) => {
+                console.log(data);
                 this.setState({
                     userImage: data.user.image[2]["#text"],
                     userPlaycount: data.user.playcount,
-                    userRealName: data.user.realname
+                    userRealName: data.user.name,
                 })
-                console.log(data.user.playcount)
+
+
                 if (data.user.playcount !== "0") {
                     this.setState({
                         userExists: true
                     });
                 }
             })
+    }
+
+    getWeekly = () => {
+        getWeeklyArtists(this.state.user)
+            .then((data) => {
+                const array = data.weeklyartistchart.artist.slice(0, 20);
+                this.setState({
+                    weekly: array
+                });
+            }).catch(error => console.log(error));
     }
 
 
@@ -90,6 +109,7 @@ class View extends React.Component {
                             name={this.state.userRealName}
                             playcount={this.state.userPlaycount}
                             friends={this.state.userFriends}
+                            weekly={this.state.weekly}
                         />
                         <TopArtists
                             artists={this.state.artists}

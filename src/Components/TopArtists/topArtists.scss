@@ -1,0 +1,13 @@
+.tile-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: center;
+    height: 100vh;
+    align-items: flex-start;
+}
+
+.tiles{
+    break-inside: avoid;
+    padding: 0px;
+}
