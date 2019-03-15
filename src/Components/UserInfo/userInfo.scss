@@ -1,0 +1,46 @@
+
+.level{
+ &.level-userinfo{
+    display: flex;
+    flex-direction: column;
+}
+}
+
+.anchestor-userinfo{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.box-friends{
+
+    &.box:not(:last-child){
+        margin: 5px;
+    }
+    &.box:last-child{
+        margin: 5px;
+    }
+}
+
+.content-userinfo{
+    display: flex;
+    flex-direction: row;
+}
+
+h4{
+ &.subtitle{
+    margin-right: 3px;
+}
+}
+
+.columns-userinfo{
+    flex-direction: column;
+}
+
+.child-userinfo{
+
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+
+}

@@ -3,7 +3,7 @@ import './App.scss';
 import View from './Components/View/view';
 import Header from './Components/header';
 import User from './Components/User/user';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
 
@@ -31,12 +31,14 @@ class App extends Component {
           <Header
             username={this.state.user}
           />
-          {this.state.user ? (<View
-            user={this.state.user}
-          />) :
-            (<User
-              handlerFromParent={this.fromUser}
-            />)}
+          <Switch>
+            {this.state.user ? (<View
+              user={this.state.user}
+            />) :
+              (<User
+                handlerFromParent={this.fromUser}
+              />)}
+          </Switch>
 
         </div>
       </Router>

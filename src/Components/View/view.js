@@ -2,7 +2,7 @@ import React from 'react';
 import TopArtists from '../topArtists';
 import { getTopArtists, getUserInfo, getUserFriends } from '../../Utils/api';
 import Error from '../../error';
-import UserInfo from '../userInfo';
+import UserInfo from '../UserInfo/userInfo';
 
 class View extends React.Component {
 

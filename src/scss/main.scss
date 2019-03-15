@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway:600');
 
+$box-shadow: 22px 22px 100px 0  rgba(138, 148, 146, 0.24);
+
 h1,h2,h3,h4{
     font-family: 'Raleway', sans-serif;
     color: white;
@@ -13,6 +15,10 @@ p{
     }
 }
 
+.profile-img{
+    border-radius: 2px;
+}
+
 .columns{
     flex-flow: wrap;
 }
@@ -23,6 +29,12 @@ p{
    max-width: 250px;
    min-width: 200px;
    word-wrap: break-word;
+   border-radius: 5px;
+   box-shadow: $box-shadow;
+}
+
+.box{
+    box-shadow: $box-shadow;
 }
 
 .tile-wrapper{

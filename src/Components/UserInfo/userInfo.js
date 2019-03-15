@@ -5,36 +5,41 @@ import { Link } from 'react-router-dom';
 const UserInfo = (props) => {
 
     return (
-        <section className="section">
-            <div className="level">
-                <div className="level-left">
-                    <div className="columns">
-                        <div className="column">
-                            <h1 className="title">{props.name}</h1>
-                        </div>
-                        <div className="column">
-                            <img src={props.image} />
-                        </div>
-                    </div>
-                </div>
-                <div className="level-right">
-                    <div className="columns">
-                        <div className="column">
-                            <div className="content">
-                                <p>{`Total scrobbles: ${props.playcount}`}</p>
+        <section className="section section-userinfo">
+            <div className="level-userinfo">
+                <div className="columns">
+                    <div className="column is-two-fifths">
+                        <div className="left">
+                            <div className="box">
+                                <div className="columns columns-userinfo">
+                                    <div className="column">
+                                        <h1 className="title">{props.name}</h1>
+                                    </div>
+                                    <div className="column">
+                                        <img className="profile-img" src={props.image} />
+                                    </div>
+                                    <div className="column">
+                                        <div className="content content-userinfo">
+                                            <h4 class="subtitle">Total scrobbles:</h4><p>{props.playcount}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="column">
-                            <div className="tile is-ancestor">
-                                <p className="subtitle">Friends</p>
-                                <div className="tile is-child">
+                    </div>
+                    <div className="column">
+                        <div className="right">
+
+                            <div className=" anchestor-userinfo">
+                                <h3 className="title">Friends</h3>
+                                <div className="child-userinfo">
                                     {props.friends.map((users) => {
                                         return (
-                                            <div className="box">
+                                            <div className="box box-friends">
                                                 <article className="media">
                                                     <div className="media-left">
                                                         <figure className="image">
-                                                            <img src={users.image[1]["#text"]} />
+                                                            <img className="profile-img" src={users.image[1]["#text"]} />
                                                         </figure>
                                                     </div>
                                                     <div className="media-content">
@@ -67,6 +72,7 @@ const UserInfo = (props) => {
                     </div>
                 </div>
             </div>
+
         </section>
     )
 
