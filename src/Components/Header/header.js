@@ -8,7 +8,7 @@ const Header = (props) => {
                 <div className="navbar-item">
                     <div className="container">
                         <h1 className="title title-header">
-                            Last.FM Profile
+                            Last.FM Profiles
                         </h1>
                     </div>
                 </div>

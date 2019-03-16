@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const TopArtists = (props) => {
 
     return (
-        <section className="section">
+        <section className="section section-top-artists">
 
             <div className="content">
                 <div className="hero">

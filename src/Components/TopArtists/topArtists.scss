@@ -1,3 +1,4 @@
+@import '../../scss/variables.scss';
 .tile-wrapper{
     display: flex;
     flex-direction: row;
@@ -10,4 +11,13 @@
 .tiles{
     break-inside: avoid;
     padding: 0px;
+}
+
+h1.artist-title{
+    color: $green-text;
+}
+
+.section-top-artists{
+    height: 100%;
+    background-color: $background-color;
 }

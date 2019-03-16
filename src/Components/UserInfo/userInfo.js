@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WeeklyArtists from '../WeeklyArtists/weeklyArtists';
-import avatar from '../../Image/512.png';
+import avatar from '../../Image/icon.svg';
 import { Link } from 'react-router-dom';
 
 const UserInfo = (props) => {
@@ -17,7 +17,7 @@ const UserInfo = (props) => {
                             <div className="box">
                                 <div className="columns columns-userinfo">
                                     <div className="column">
-                                        <h1 className="title">{props.name}</h1>
+                                        <h1 className="title title-user">{props.name}</h1>
                                     </div>
                                     <div className="column">
                                         <img className="profile-img" src={props.image} alt="" />
@@ -55,10 +55,10 @@ const UserInfo = (props) => {
                                                     </div>
                                                     <div className="media-content">
                                                         <p>
-                                                            <strong>
+                                                            <strong className="friends-title-bold">
                                                                 {users.name}
                                                             </strong>
-                                                            <small>
+                                                            <small className="friends-title-small">
                                                                 <Link to={users.url}>
                                                                     {` @${users.name}`}
                                                                 </Link>

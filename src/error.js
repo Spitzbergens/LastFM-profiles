@@ -13,7 +13,7 @@ class Error extends React.Component {
 
             <section className="section">
                 <div className="error-wrapper">
-                    <p className="subtitle">
+                    <p className="subtitle subtitle-error">
                         Something went wrong. :( There exists no user with that name.
                         Heading back in 5 seconds.
             </p>

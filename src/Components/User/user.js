@@ -34,11 +34,11 @@ class User extends React.Component {
             <div className="container container-user">
                 <div className="box box-user">
                     <div className="box-title">
-                        <p className="title login-title">What is your LastFM username?</p>
+                        <p className="title login-title">What is your Last.FM username?</p>
                     </div>
                     <form onSubmit={this.submitHandler}>
                         <div className="control user-control">
-                            <input type="text" className="input input-user" placeholder="Username" ref="name" />
+                            <input type="text" className="input input-user" placeholder={`e.g. "Matshagen"`} ref="name" />
                             <button type="submit" className="button button-user" onClick={this.handleInput}>Get Profile</button>
                         </div>
                     </form>

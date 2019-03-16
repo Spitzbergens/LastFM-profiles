@@ -1,3 +1,4 @@
+@import '../../scss/variables.scss';
 
 .level{
  &.level-userinfo{
@@ -21,8 +22,16 @@
     }
 }
 
-.title-friends{
+
+
+h3.title-friends{
     text-align:center;
+    color: $green-text;
+}
+
+.title, .title-user{
+    color: $green-text;
+    font-weight: 500;
 }
 
 .content-userinfo{
@@ -34,6 +43,27 @@ h4{
  &.subtitle{
     margin-right: 3px;
 }
+}
+
+
+
+.friends-title-bold{
+    color: $gray-text;
+}
+
+.friends-title-small, a{
+    color: $green-text;
+}
+
+.tag{
+    &.tag-left{
+        background-color: $tag-left-background;
+        color: $tag-left-color;
+    }
+    &.tag-right{
+        background-color: $tag-right-background;
+        color: $tag-right-color;
+    }
 }
 
 .columns-userinfo{
@@ -51,8 +81,10 @@ h4{
     align-items: center;
 }
 
-@media screen and (max-width: 800px){
+.section-userinfo{
+    background-color: $background-color; 
+}
 
-
-
+.subtitle-weekly{
+    color: $green-text;
 }

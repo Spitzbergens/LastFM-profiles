@@ -3,7 +3,7 @@ import TopArtists from '../TopArtists/topArtists';
 import { getTopArtists, getUserInfo, getUserFriends, getWeeklyArtists } from '../../Utils/api';
 import Error from '../../error';
 import UserInfo from '../UserInfo/userInfo';
-import anonAvatar from '../../Image/512.png';
+import anonAvatar from '../../Image/icon.svg';
 
 
 
@@ -106,7 +106,7 @@ class View extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container content-container">
 
                 {this.state.userExists ?
                     (
