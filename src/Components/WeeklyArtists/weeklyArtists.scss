@@ -2,5 +2,15 @@
 .tags-wrapper{
     display:flex;
     flex-direction: row;
-    flex-flow: wrap;
+    flex-flow: wrap; 
+}
+
+.subtitle-weekly{
+    text-align: center;
+}
+
+.tags-weekly-user{
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }

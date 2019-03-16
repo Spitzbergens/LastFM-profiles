@@ -1,16 +1,18 @@
-
+@import '../../scss/variables.scss';
 
 .box-user{
     position: fixed;
     display: flex;
     flex-direction: column;
-    top: 40%;
+    top: 30%;
     padding: 40px;
-    box-shadow: 22px 22px 100px 0  rgba(138, 148, 146, 0.24);
-   
+    background-color: $background-color;
+    color: $green-text;
+    box-shadow: $box-shadow-blue-body;
 }
 
 .box-title{
+    text-align: center;
     margin: 5px;
     padding: 5px;
     & p{
@@ -18,15 +20,52 @@
     }
 }
 
+.login-title{
+    color: $gray-text;
+}
+
 .container-user{
     display: flex;
     justify-content: center;
 }
 
-.user-control{
+.input-user{
+    border-color: $background-color;
+    background-color: $background-color-input;
+    outline: none !important;
 
+}
+
+.input .input-user:focus{
+    outline: none !important;
+    border-color: $green-outline;
+}
+
+
+
+.button-user{
+    background-color: $background-color;
+    color: $green-text;
+    border-color: $green-outline;
+    transition: all .25s cubic-bezier(.645,.045,.355,1) 0s;
+   
+}
+
+.control:focus{
+    outline: none;
+    &.user-control:focus{
+        outline: none;
+    }
+}
+
+.button-user:hover{
+    background-color: $background-hover;
+    color: $green-text;
+    border-color: $green-outline;
+}
+
+.user-control{
     & input{
         margin-bottom:5px;
     }
-
 }

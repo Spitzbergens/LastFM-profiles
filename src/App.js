@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import View from './Components/View/view';
-import Header from './Components/header';
+import Header from './Components/Header/header';
 import User from './Components/User/user';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -25,23 +25,26 @@ class App extends Component {
 
   render() {
     return (
+
       <Router>
-        <div className="App">
+        <div className="main-wrapper">
+          <div className="App">
 
-          <Header
-            username={this.state.user}
-          />
-          <Switch>
-            {this.state.user ? (<View
-              user={this.state.user}
-            />) :
-              (<User
-                handlerFromParent={this.fromUser}
-              />)}
-          </Switch>
-
+            <Header
+              username={this.state.user}
+            />
+            <Switch>
+              {this.state.user ? (<View
+                user={this.state.user}
+              />) :
+                (<User
+                  handlerFromParent={this.fromUser}
+                />)}
+            </Switch>
+          </div>
         </div>
       </Router>
+
     );
   }
 }

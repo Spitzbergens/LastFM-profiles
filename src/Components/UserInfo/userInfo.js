@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WeeklyArtists from '../WeeklyArtists/weeklyArtists';
+import avatar from '../../Image/512.png';
 import { Link } from 'react-router-dom';
 
 const UserInfo = (props) => {
+
+    const userAvatar = avatar;
 
     return (
         <section className="section section-userinfo">
@@ -38,7 +41,7 @@ const UserInfo = (props) => {
                         <div className="right">
 
                             <div className=" anchestor-userinfo">
-                                <h3 className="title">Friends</h3>
+                                <h3 className="title title-friends">Friends</h3>
                                 <div className="child-userinfo">
                                     {props.friends.map((users) => {
                                         return (
@@ -46,7 +49,8 @@ const UserInfo = (props) => {
                                                 <article className="media">
                                                     <div className="media-left">
                                                         <figure className="image">
-                                                            <img className="profile-img" src={users.image[1]["#text"]} alt="" />
+                                                            {users.image[1]["#text"] !== "" ? (<img className="profile-img" src={users.image[1]["#text"]} alt="" />) : (<img className="profile-img-avatar" src={userAvatar} alt="" />)}
+
                                                         </figure>
                                                     </div>
                                                     <div className="media-content">

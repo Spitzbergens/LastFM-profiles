@@ -7,6 +7,12 @@ h1,h2,h3,h4{
     color: white;
 }
 
+body{
+    margin: 0;
+    min-height: 100vh;
+    width: 100vw;
+}
+
 p{
     font-family: 'Open Sans', sans-serif;
     &.header{
@@ -14,10 +20,59 @@ p{
     }
 }
 
+button:focus
+input:focus {
+    outline: none !important;
+}
+
+.input .input-user:focus{
+    outline: none !important;
+}
+
+
+.main-wrapper{
+    height: 100vh;
+    min-width: 100vw;
+    background-color: $background-color;
+}
+
+.input:focus,
+.input.is-focused,
+.input.active{
+    outline: none !important;
+    border-color: $background-color !important;
+    box-shadow: none !important;
+}
+
+.input:hover,
+.input.is-hovered,
+.textarea:hover,
+.textarea.is-hovered{
+    border-color: $background-color;
+}
+
+.button:focus,
+.button.is-focused
+.button:active{
+    border-color: $green-outline;
+    color: $green-text
+}
+
+
+.button:focus:not(:active),
+.button.is-focused:not(:active){
+    box-shadow: $box-shadow
+}
+
 .profile-img{
     border-radius: 5px;
     max-width: 174px;
     max-height: 174px;
+}
+
+.profile-img-avatar{
+    max-width: 64px;
+    max-height: 64px;
 }
 
 .columns{

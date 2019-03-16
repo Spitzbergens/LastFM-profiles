@@ -1,0 +1,11 @@
+@import '../.././scss/variables.scss';
+
+
+.navbar{
+    background-color: $background-color;
+    box-shadow: 11px 11px 50px 0 rgb(7, 17, 34)
+}
+
+.title-header{
+    color: $green-text;
+}

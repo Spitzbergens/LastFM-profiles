@@ -11,7 +11,6 @@
     flex-direction: column;
 }
 
-
 .box-friends{
 
     &.box:not(:last-child){
@@ -22,7 +21,9 @@
     }
 }
 
-
+.title-friends{
+    text-align:center;
+}
 
 .content-userinfo{
     display: flex;
@@ -36,13 +37,22 @@ h4{
 }
 
 .columns-userinfo{
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .child-userinfo{
-
     display: flex;
     flex-direction: column;
     flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 800px){
+
+
 
 }

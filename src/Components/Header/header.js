@@ -3,13 +3,13 @@ import React from 'react';
 const Header = (props) => {
 
     return (
-        <nav className="navbar is-dark">
+        <nav className="navbar">
             <div className="navbar-brand">
                 <div className="navbar-item">
                     <div className="container">
-                        <h1 className="title is-light">
+                        <h1 className="title title-header">
                             Last.FM Profile
-                            </h1>
+                        </h1>
                     </div>
                 </div>
             </div>

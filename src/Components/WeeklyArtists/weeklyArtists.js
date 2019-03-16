@@ -5,9 +5,9 @@ const WeeklyArtists = (props) => {
 
     return (
         <div>
-            <h3 className="subtitle">Recently played</h3>
+            <h3 className="subtitle subtitle-weekly">Recently played</h3>
             <div className="tags-wrapper">
-                <div className="tags are-medium">
+                <div className="tags are-medium tags-weekly-user">
                     {props.weekly.map((artists) => {
                         return (
                             <div className="tag" key={artists.name}>{artists.name}</div>

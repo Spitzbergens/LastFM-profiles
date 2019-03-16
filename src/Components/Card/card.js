@@ -13,7 +13,7 @@ const Card = (props) => {
             <div className="card-content">
                 <h3 className="title">{props.artistName}</h3>
                 <div className="content">
-                    <div className="tags has-addons">
+                    <div className="tags are-medium has-addons">
                         <span className="tag tag-left">Scrobbles</span>
                         <span className="tag tag-right">{props.playCount}</span>
                     </div>
