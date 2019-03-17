@@ -9,10 +9,24 @@ class Artist extends React.Component {
         }
     }
 
+    componentWillMount() {
+        let { bioSummary } = this.props.location.state;
+        bioSummary = this.handleString(bioSummary);
+        this.setState({
+            bioSummary
+        });
+    }
 
     async componentDidMount() {
-        const { name, bioBig, bioSummary, similar, listeners, playcount, tags, url, image } = this.props.location.state;
-        await this.setState({ name, bioBig, bioSummary, similar, listeners, playcount, tags, url, image });
+        const { name, bioBig, similar, listeners, playcount, tags, url, image } = this.props.location.state;
+
+        await this.setState({ name, bioBig, similar, listeners, playcount, tags, url, image });
+    }
+
+    handleString = (string) => {
+        let regxp = /<a\s+(?:[^>]*?)?href=(["'])(.*?)(>)(Read more on last.fm)(<\/a>)/gmi;
+        return string.replace(regxp, "");
+
     }
 
     render() {
