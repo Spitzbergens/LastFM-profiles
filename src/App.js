@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.scss';
 import View from './Components/View/view';
 import Header from './Components/Header/header';
+import Artist from './Components/Artist/artist';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
 
@@ -28,36 +30,41 @@ class App extends Component {
     return (
 
 
-      <div className="main-wrapper">
-        <div className="App">
+      <Router>
+        <div className="main-wrapper">
+          <div className="App">
 
-          <Header />
+            <Header />
 
-          {this.state.user ?
-            (<View user={this.state.user} />
-            ) :
+            {this.state.user ?
+              (
+                <Switch>
+                  <Route exact path={"/"} render={() => <View user={this.state.user} />} />
+                  <Route path={`/artist/:artistName`} component={Artist} />
+                </Switch>
+              ) :
 
-            (<div className="container container-user">
-              <div className="box box-user">
-                <div className="box-title">
-                  <p className="title login-title">What is your Last.FM username?</p>
+              (<div className="container container-user">
+                <div className="box box-user">
+                  <div className="box-title">
+                    <p className="title login-title">What is your Last.FM username?</p>
+                  </div>
+
+                  <div className="control user-control">
+                    <form onSubmit={this.handleInput}>
+                      <input type="text" className="input input-user" placeholder={`e.g. "Matshagen"`} ref="name" />
+                      <button type="submit" className="button button-user" onSubmit={this.handleInput}>Get Profile</button>
+                    </form>
+                  </div>
+
+
+                  <p className="help">Your information won't persist</p>
                 </div>
+              </div>)}
 
-                <div className="control user-control">
-                  <form onSubmit={this.handleInput}>
-                    <input type="text" className="input input-user" placeholder={`e.g. "Matshagen"`} ref="name" />
-                    <button type="submit" className="button button-user" onSubmit={this.handleInput}>Get Profile</button>
-                  </form>
-                </div>
-
-
-                <p className="help">Your information won't persist</p>
-              </div>
-            </div>)}
-
+          </div>
         </div>
-      </div>
-
+      </Router>
     );
   }
 }

@@ -1,0 +1,86 @@
+@import '../../scss/variables.scss';
+
+.level-item-text{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin: 10px;
+}
+
+h1.artist-title{
+    text-align: center;
+    color: $gray-text;
+    font-size: 45px;
+}
+
+.artist-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content {
+&.content-artist-description{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+}
+
+.level-artist{
+    align-items: baseline;
+}
+
+.tags-genre{
+    flex-flow: wrap;
+    justify-content: center;
+}
+
+.tag,
+.tag:not(body),
+.tag-genre{
+    background-color: $tag-artist-background;
+    color: $green-text;
+}
+
+.container-tags{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+.bio{
+    color: $gray-text;
+    text-align: center;
+    max-width: 90%;
+}
+
+.column-artist-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.level-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-text{
+    display: flex;
+    flex-direction: column;
+    max-width: 80vw;
+}
+
+.column{
+    &.is-two-fifths{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.box-artist{
+    max-width: 446px;
+}

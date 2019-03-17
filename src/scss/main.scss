@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=VT323');
 @import './variables.scss';
 
 h1,h2,h3,h4,h5{
@@ -16,6 +17,10 @@ p, a{
 
 .tags{
     font-family: 'Ubuntu Mono', monospace
+}
+
+.title-header{
+    font-family: "VT323", monospace;
 }
 
 button:focus

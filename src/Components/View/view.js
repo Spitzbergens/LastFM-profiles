@@ -4,6 +4,9 @@ import { getTopArtists, getUserInfo, getUserFriends, getWeeklyArtists } from '..
 import Error from '../../error';
 import UserInfo from '../UserInfo/userInfo';
 import anonAvatar from '../../Image/icon.svg';
+import Artist from '../Artist/artist';
+import { Route, Switch } from 'react-router-dom';
+
 
 
 

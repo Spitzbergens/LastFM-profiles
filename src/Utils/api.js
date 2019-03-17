@@ -53,10 +53,19 @@ const getWeeklyArtists = async (user) => {
     return artists;
 }
 
+const getArtistInfo = async (artist) => {
+    const getArtist = `${api_root}?method=artist.getinfo&artist=${artist}&api_key=${key}&format=json`;
+    const artists = fetch(getArtist)
+        .then((data) => {
+            return data.json();
+        }).catch(error => console.error(error));
+    return artists;
+}
 
 
 
-export { getTopArtists, getUserInfo, getUserFriends, getTokenLastFM, getWeeklyArtists };
+
+export { getTopArtists, getUserInfo, getUserFriends, getTokenLastFM, getWeeklyArtists, getArtistInfo };
 
 
 
