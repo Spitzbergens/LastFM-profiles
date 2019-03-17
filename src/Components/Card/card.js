@@ -29,6 +29,7 @@ class Card extends React.Component {
     getArtistInfo = (name) => {
         getArtistInfo(name)
             .then((info) => {
+                console.log(info);
                 this.setState({
                     name: info.artist.name,
                     bioBig: info.artist.bio.content,

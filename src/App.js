@@ -39,8 +39,8 @@ class App extends Component {
             {this.state.user ?
               (
                 <Switch>
-                  <Route path={"/"} render={() => <View user={this.state.user} />} />
-                  <Route exact path={`/artist/:artistName`} component={Artist} />
+                  <Route exact path={"/"} render={() => <View user={this.state.user} />} />
+                  <Route path={`/artist/:artistName`} component={Artist} />
                 </Switch>
               ) :
 
@@ -51,8 +51,10 @@ class App extends Component {
                   </div>
 
                   <div className="control user-control">
+
                     <input type="text" className="input input-user" placeholder={`e.g. "Matshagen"`} ref="name" />
                     <button type="submit" className="button button-user" onClick={this.handleInput}>Get Profile</button>
+
                   </div>
 
 

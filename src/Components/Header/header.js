@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const Header = () => {
 
@@ -7,9 +8,11 @@ const Header = () => {
             <div className="navbar-brand">
                 <div className="navbar-item">
                     <div className="container">
-                        <h1 className="title title-header">
-                            Last.FM Profiles
+                        <Link to="/">
+                            <h1 className="title title-header">
+                                Last.FM Profiles
                         </h1>
+                        </Link>
                     </div>
                 </div>
             </div>

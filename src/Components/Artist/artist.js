@@ -4,23 +4,17 @@ class Artist extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-
-        }
+        this.state = {}
     }
 
-    componentWillMount() {
+
+    async componentWillMount() {
+        const { name, bioBig, similar, listeners, playcount, tags, url, image } = this.props.location.state;
         let { bioSummary } = this.props.location.state;
         bioSummary = this.handleString(bioSummary);
-        this.setState({
-            bioSummary
-        });
-    }
 
-    async componentDidMount() {
-        const { name, bioBig, similar, listeners, playcount, tags, url, image } = this.props.location.state;
 
-        await this.setState({ name, bioBig, similar, listeners, playcount, tags, url, image });
+        await this.setState({ name, bioBig, bioSummary, similar, listeners, playcount, tags, url, image });
     }
 
     handleString = (string) => {
