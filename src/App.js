@@ -52,7 +52,7 @@ class App extends Component {
 
                   <div className="control user-control">
                     <input type="text" className="input input-user" placeholder={`e.g. "Matshagen"`} ref="name" />
-                    <button type="submit" className="button button-user" onSubmit={this.handleInput}>Get Profile</button>
+                    <button type="submit" className="button button-user" onClick={this.handleInput}>Get Profile</button>
                   </div>
 
 
