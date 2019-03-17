@@ -14,6 +14,12 @@
 
 .box-friends{
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 254px;
+    transition: all ease 0.2s;
+
     &.box:not(:last-child){
         margin: 5px;
     }
@@ -22,6 +28,28 @@
     }
 }
 
+.box-friends:hover{
+    transform: translateY(-3px);
+}
+
+.media{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-left{
+    display: flex;
+    justify-content: center;
+}
+
+.lastfm-url:hover{
+    color: $green-hover;
+}
+
+.lastfm-url{
+    transition: all ease-in 0.2s;
+}
 
 
 h3.title-friends{

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './App.scss';
 import View from './Components/View/view';
 import Header from './Components/Header/header';
-import User from './Components/User/user';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
 
@@ -15,9 +13,12 @@ class App extends Component {
   }
 
 
-  fromUser = (data) => {
-    this.setState({
-      user: data
+  handleInput = () => {
+    const name = this.refs.name.value;
+    this.setState(() => {
+      return {
+        user: name
+      }
     });
   }
 
@@ -26,24 +27,36 @@ class App extends Component {
   render() {
     return (
 
-      <Router>
-        <div className="main-wrapper">
-          <div className="App">
 
-            <Header
-              username={this.state.user}
-            />
-            <Switch>
-              {this.state.user ? (<View
-                user={this.state.user}
-              />) :
-                (<User
-                  handlerFromParent={this.fromUser}
-                />)}
-            </Switch>
-          </div>
+      <div className="main-wrapper">
+        <div className="App">
+
+          <Header />
+
+          {this.state.user ?
+            (<View user={this.state.user} />
+            ) :
+
+            (<div className="container container-user">
+              <div className="box box-user">
+                <div className="box-title">
+                  <p className="title login-title">What is your Last.FM username?</p>
+                </div>
+
+                <div className="control user-control">
+                  <form onSubmit={this.handleInput}>
+                    <input type="text" className="input input-user" placeholder={`e.g. "Matshagen"`} ref="name" />
+                    <button type="submit" className="button button-user" onSubmit={this.handleInput}>Get Profile</button>
+                  </form>
+                </div>
+
+
+                <p className="help">Your information won't persist</p>
+              </div>
+            </div>)}
+
         </div>
-      </Router>
+      </div>
 
     );
   }

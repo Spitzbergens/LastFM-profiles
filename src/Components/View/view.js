@@ -8,7 +8,6 @@ import anonAvatar from '../../Image/icon.svg';
 
 
 
-
 class View extends React.Component {
 
     constructor(props) {
@@ -17,7 +16,7 @@ class View extends React.Component {
             artists: [],
             userFriends: [],
             weekly: [],
-            user: this.props.user,
+            user: '',
             userImage: '',
             userPlaycount: '',
             userRealName: '',
@@ -26,21 +25,25 @@ class View extends React.Component {
         }
     }
 
-    async componentWillMount() {
-        this.getUser();
-        this.getWeekly();
+    async componentDidMount() {
+        await this.setState({
+            user: this.props.user
+        })
+
+        this.getUser(this.state.user);
+        this.getWeekly(this.state.user);
+        this.getArtist(this.state.user);
+        this.getUserFriends(this.state.user);
     }
 
-    componentDidMount() {
-        this.getArtist();
-        this.getUserFriends();
-    }
 
-    getUser = () => {
+
+
+    getUser = (user) => {
 
         const avatar = anonAvatar;
 
-        getUserInfo(this.state.user)
+        getUserInfo(user)
             .then((data) => {
                 const userarray = data.user.image;
                 if (userarray[0]["#text"] === "") {
@@ -65,8 +68,10 @@ class View extends React.Component {
             })
     }
 
-    getWeekly = () => {
-        getWeeklyArtists(this.state.user)
+
+
+    getWeekly = (user) => {
+        getWeeklyArtists(user)
             .then((data) => {
                 const array = data.weeklyartistchart.artist.slice(0, 20);
                 this.setState({
@@ -76,8 +81,8 @@ class View extends React.Component {
     }
 
 
-    getArtist = () => {
-        getTopArtists(this.state.user).then(
+    getArtist = (user) => {
+        getTopArtists(user).then(
             (data) => {
                 const artist = data.topartists
                 this.setState({
@@ -93,8 +98,8 @@ class View extends React.Component {
         })
     }
 
-    getUserFriends = () => {
-        getUserFriends(this.state.user)
+    getUserFriends = (user) => {
+        getUserFriends(user)
             .then((data) => {
                 this.setState({
                     userFriends: data.friends.user,
@@ -102,6 +107,12 @@ class View extends React.Component {
             }).catch((error) => {
                 console.error(error)
             })
+    }
+
+    fromUser = (name) => {
+        this.setState({
+            user: name,
+        })
     }
 
     render() {

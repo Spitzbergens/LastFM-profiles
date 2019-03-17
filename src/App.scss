@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import '~bulma/bulma.sass';
 @import './scss/main.scss';
-@import './Components/User/user.scss';
+@import './scss/variables.scss';
 @import './Components/UserInfo/userInfo.scss';
 @import './Components/TopArtists/topArtists.scss';
 @import './Components/Card/card.scss';
@@ -11,4 +11,76 @@
 html, body, #app, #app>div {
   height: 100%;
   background-color: $background-color;
+}
+
+
+
+.box-user{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 30%;
+    padding: 40px;
+    background-color: $background-color;
+    color: $green-text;
+    box-shadow: $box-shadow-blue-body;
+}
+
+.box-title{
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    & p{
+        font-size: 28px;
+    }
+}
+
+.login-title{
+    color: $gray-text;
+}
+
+.container-user{
+    display: flex;
+    justify-content: center;
+}
+
+.input-user{
+    border-color: $background-color;
+    background-color: $background-color-input;
+    outline: none !important;
+
+}
+
+.input .input-user:focus{
+    outline: none !important;
+    border-color: $green-outline;
+}
+
+
+
+.button-user{
+    background-color: $background-color;
+    color: $green-text;
+    border-color: $green-outline;
+    transition: all .25s cubic-bezier(.645,.045,.355,1) 0s;
+   
+}
+
+.control:focus{
+    outline: none;
+    &.user-control:focus{
+        outline: none;
+    }
+}
+
+.button-user:hover{
+    background-color: $background-hover;
+    color: $green-text;
+    border-color: $green-outline;
+}
+
+.user-control{
+    & input{
+        margin-bottom:5px;
+    }
 }

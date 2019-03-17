@@ -2,12 +2,17 @@
 
 .card{
    margin: 10px;
-   max-width: 250px;
+   max-width: 300px;
    min-width: 200px;
    word-wrap: break-word;
    border-radius: 5px;
    box-shadow: $box-shadow-blue;
    background-color: $background-color;
+   transition: all ease-in-out 0.2s;
+}
+
+.card:hover{
+    transform: translateY(-3px);
 }
 
 .card-content{
