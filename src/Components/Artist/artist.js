@@ -76,29 +76,47 @@ class Artist extends React.Component {
                                 </div>
 
                             </div>
+
+
+
                         </div>
                         <div className="column">
                             <div className="level-items">
-
                                 <h1 className="title">
                                     Bio
                                 </h1>
 
-
-
                                 <p className="bio">
                                     {`${this.state.bioSummary}`}
                                 </p>
-
-
-
                             </div>
                         </div>
-
                     </div>
+
+
+
+                    <div className="columns">
+                        <div className="column column-similar">
+
+                            <h1 className="title">Similar artists</h1>
+                            <div className="container-similar">
+                                {this.state.similar.map((artist) => {
+                                    return (
+                                        <div className="card card-similar" key={artist.name}>
+                                            <div className="card-image card-image-similar">
+                                                <img src={artist.image[2]["#text"]} alt="" />
+                                            </div>
+                                            <div className="card-content">
+                                                <h4 className="subtitle similar-subtitle">{artist.name}</h4>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-
-
             </section>
         )
     }

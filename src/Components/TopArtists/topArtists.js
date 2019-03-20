@@ -16,6 +16,7 @@ const TopArtists = (props) => {
                 <div className="tile-wrapper">
                     {props.artists.map((element) => {
                         return (
+
                             <div className="tiles" key={element.name}>
                                 <Card
                                     image={
