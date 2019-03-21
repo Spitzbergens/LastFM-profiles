@@ -28,17 +28,34 @@ h1.artist-title{
 }
 
 .card-image {
+    height: 100%;
+    width: 100%;
  &.card-image-similar{
     & img{
-        height: 200px;
-        width: 200px;
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: fill;
     }
  }
+}
+
+.level-artist-image{
+   
+    &.artist-image-info, img{
+     
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: fill;
+        border-radius: 5px;
+
+        
+    }
 }
 
 .card-similar {
     max-width: 200px;
     max-height: 300px;
+    border-radius: 5px;
     &.card-similar{
         display:flex;
         flex-direction: column;

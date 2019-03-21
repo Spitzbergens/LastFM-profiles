@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Artist extends React.Component {
 
@@ -33,8 +34,8 @@ class Artist extends React.Component {
                     <div className="columns">
                         <div className="column is-two-fifths">
                             <div className="box box-artist">
-                                <div className="level-item">
-                                    <figure className="image">
+                                <div className="level-item level-artist-image">
+                                    <figure className="image artist-intro-image">
                                         <img src={this.state.image} alt="i" />
                                     </figure>
                                 </div>
@@ -103,11 +104,15 @@ class Artist extends React.Component {
                                 {this.state.similar.map((artist) => {
                                     return (
                                         <div className="card card-similar" key={artist.name}>
-                                            <div className="card-image card-image-similar">
-                                                <img src={artist.image[2]["#text"]} alt="" />
+                                            <div className="card-image">
+                                                <figure className="image">
+                                                    <img src={artist.image[2]["#text"]} alt="" />
+                                                </figure>
                                             </div>
                                             <div className="card-content">
-                                                <h4 className="subtitle similar-subtitle">{artist.name}</h4>
+                                                <a href={artist.url} alt="artist url">
+                                                    <h4 className="subtitle similar-subtitle">{artist.name}</h4>
+                                                </a>
                                             </div>
                                         </div>
                                     )
